@@ -1,0 +1,28 @@
+[package]
+name = "sqlb"
+version = "0.0.8"
+authors = ["Jeremy Chone <jeremy.chone@gmail.com>"]
+edition = "2018"
+homepage = "https://github.com/jeremychone/rust-sqlb"
+repository = "https://github.com/jeremychone/rust-sqlb"
+description = "Simple, expressive, and progressive SQL Builder for Rust."
+keywords = [
+	"sql",
+	"sqlbuilder",
+	"database",
+	"orm",
+	"postgres"
+]
+categories = ["database"]
+license = "MIT OR Apache-2.0"
+
+[workspace]
+members = [".", "sqlb-macros"]
+
+[dependencies]
+sqlx_wasi = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres", "time" ] }
+sqlb-macros = { version="0.0.5", path = "sqlb-macros" }
+async-trait = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
